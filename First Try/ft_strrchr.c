@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 09:24:51 by mheinke           #+#    #+#             */
-/*   Updated: 2023/07/04 13:36:08 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/07/05 10:32:00 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strrchr(const char *s, int c)
 		return ((char *)s + i);
 	while (i >= 0)
 	{
-		if (s[i] == c)
+		if (s[i] == (char)c)
 			return ((char *)s + i);
 		i--;
 	}
