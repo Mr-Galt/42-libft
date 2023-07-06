@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 09:30:11 by mheinke           #+#    #+#             */
-/*   Updated: 2023/07/05 20:30:43 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/07/06 13:36:20 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	*ft_calloc(size_t count, size_t size)
 {
 	void	*buffer;
 
-	if (size && count > (UINT16_MAX / size))
+	if (size && (count > (UINT32_MAX / size)))
 		return (NULL);
 	buffer = (void *)malloc(count * size);
 	if (buffer == NULL)
