@@ -6,71 +6,46 @@
 #    By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/04 09:45:03 by mheinke           #+#    #+#              #
-#    Updated: 2023/07/06 11:46:46 by mheinke          ###   ########.fr        #
+#    Updated: 2023/07/08 11:32:08 by mheinke          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-Library		= libft
+CC	=	clang
+CFLAGS	=	-Wall -Wextra -Werror
 
-files 	   = ft_strlen \
-			 ft_memmove \
-			 ft_memcpy \
-			 ft_strlcpy \
-			 ft_strlcat \
-			 ft_isalpha \
-			 ft_isdigit \
-			 ft_isalnum \
-			 ft_isascii \
-			 ft_isprint \
-			 ft_memset \
-			 ft_bzero \
-			 ft_toupper \
-			 ft_tolower \
-			 ft_strchr \
-			 ft_strrchr \
-			 ft_strncmp \
-			 ft_memchr \
-			 ft_memcmp \
-			 ft_strnstr \
-			 ft_atoi \
-			 ft_calloc \
-			 ft_strdup \
-			 ft_substr \
-			 ft_strjoin \
-			 ft_strtrim \
-			 ft_split \
-			 ft_itoa \
-			 ft_strmapi \
-			 ft_striteri \
-			 ft_putchar_fd \
-			 ft_putstr_fd \
-			 ft_putendl_fd \
-			 ft_putnbr_fd \
+NAME	=	libft.a
 
-Compiler	= gcc
+RM	=	rm -f
 
-CmpFlags	= -Wall -Wextra -Werror
+AR	=	ar -rcs
 
-OUTN	= $(Library).a
+LIB	=	ranlib
 
-CFILES	= $(files:%=%.c)
+INCLUDE	=	libft.h
+SOURCES	=	ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_tolower.c \
+			ft_isascii.c ft_isdigit.c ft_isprint.c ft_memchr.c ft_memcpy.c \
+			ft_memcmp.c ft_memset.c ft_strchr.c ft_strlcat.c ft_toupper.c \
+			ft_strlcpy.c ft_strlen.c ft_strncmp.c ft_calloc.c ft_strrchr.c \
+			ft_memmove.c ft_strdup.c ft_strnstr.c ft_strjoin.c ft_putchar_fd.c \
+			ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_strmapi.c \
+			ft_strtrim.c ft_substr.c ft_split.c ft_itoa.c ft_striteri.c
 
-OFILES	= $(files:%=%.o)
+OBJECTS	=	$(SOURCES:.c=.o)
 
-NAME	= $(OUTN)
+all:	$(NAME)
 
-$(NAME):
-	$(Compiler) $(CmpFlags) -c $(CFILES) -I./
-	ar -rc $(OUTN) $(OFILES)
+$(NAME):	$(OBJECTS) $(INCLUDE)
+			$(AR) $(NAME) $(OBJECTS)
+			$(LIB) $(NAME)			
 
-all: $(NAME)
+.c.o:	$(CC) (CFLAGS) -I$(INCLUDE) -c $< -o $(<:.c=.o)
 
 clean:
-	rm -f $(OFILES)
+		$(RM) $(OBJECTS)
 
-fclean: clean
-	rm -f $(NAME)
+fclean:	clean
+		$(RM) $(NAME)
 
-re: fclean all
+re:	fclean all
 
-.PHONY: all, clean, fclean, re
+.PHONY:	all clean fclean re
