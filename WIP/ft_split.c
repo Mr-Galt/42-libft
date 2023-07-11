@@ -6,104 +6,39 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 09:37:42 by mheinke           #+#    #+#             */
-/*   Updated: 2023/07/10 10:30:53 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/07/11 11:34:34 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// static size_t	ft_wordcounter(char const *s, char c)
-// {
-// 	size_t	count;
-
-// 	if (!*s)
-// 		return (0);
-// 	count = 0;
-// 	while (*s)
-// 	{
-// 		while (*s == c)
-// 			s++;
-// 		if (*s)
-// 			count++;
-// 		while (*s != c && *s)
-// 			s++;
-// 	}
-// 	return (count);
-// }
-
-// size_t	ft_skip_chars(const char *s, char c)
-// {
-// 	size_t	i;
-
-// 	i = 0;
-// 	while (s[i] == c && s[i] != '\0')
-// 		i++;
-// 	return (i);
-// }
-
-// size_t	ft_word_len(const char *s, char c)
-// {
-// 	size_t	i;
-
-// 	i = 0;
-// 	while (s[i] != c && s[i] != '\0')
-// 		i++;
-// 	return (i);
-// }
-
-// char	**ft_split(char const *s, char c)
-// {
-// 	char	**lst;
-// 	size_t	word_len;
-// 	int		i;
-
-// 	if (!s)
-// 		return (NULL);
-// 	lst = (char **)malloc(sizeof(char *) * (ft_wordcounter(s, c) + 1));
-// 	if (!lst)
-// 		return (NULL);
-// 	i = 0;
-// 	while (*s)
-// 	{
-// 		s += ft_skip_chars(s, c);
-// 		if (*s)
-// 		{
-// 			word_len = ft_word_len(s, c);
-// 			lst[i++] = ft_substr(s, 0, word_len);
-// 			s += word_len;
-// 		}
-// 	}
-// 	lst[i] = NULL;
-// 	return (lst);
-// }
-
 static int	ft_count_word(char const *s, char c)
 {
 	int	i;
-	int	word;
+	int	word_count;
 
 	i = 0;
-	word = 0;
+	word_count = 0;
 	while (s && s[i])
 	{
 		if (s[i] != c)
 		{
-			word++;
+			word_count++;
 			while (s[i] != c && s[i])
 				i++;
 		}
 		else
 			i++;
 	}
-	return (word);
+	return (word_count);
 }
 
-static int	ft_size_word(char const *s, char c, int i)
+static int	ft_wordsize(char const *str, char c, int i)
 {
 	int	size;
 
 	size = 0;
-	while (s[i] != c && s[i])
+	while (str[i] != c && str[i])
 	{
 		size++;
 		i++;
@@ -134,7 +69,7 @@ char	**ft_split(char const *s, char c)
 	{
 		while (s[i] == c)
 			i++;
-		size = ft_size_word(s, c, i);
+		size = ft_wordsize(s, c, i);
 		strs[j] = ft_substr(s, i, size);
 		if (!strs[j])
 		{

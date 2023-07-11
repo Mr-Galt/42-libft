@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 09:17:03 by mheinke           #+#    #+#             */
-/*   Updated: 2023/07/05 19:08:59 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/07/11 11:28:24 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 void	ft_bzero(void *s, size_t n)
 {
 	size_t	i;
-	char	*p;
+	char	*str;
 
 	i = 0;
-	p = (char *)s;
+	str = (char *)s;
 	while (i < n)
-		p[i++] = 0;
+		str[i++] = 0;
 }
