@@ -1,41 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/04 09:28:27 by mheinke           #+#    #+#             */
-/*   Updated: 2023/07/11 19:51:52 by mheinke          ###   ########.fr       */
+/*   Created: 2023/07/11 20:18:24 by mheinke           #+#    #+#             */
+/*   Updated: 2023/07/11 20:37:28 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t n)
+t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	size_t	i;
-	size_t	j;
+	t_list	*new_list;
+	t_list	*temp_node;
 
-	i = 0;
-	j = 0;
-	if (!haystack && !n)
+	if (!lst || !f)
 		return (NULL);
-	if (!*needle)
-		return ((char *)haystack);
-	while (haystack[i] != '\0' && i < n)
+	new_list = NULL;
+	while (lst)
 	{
-		if (haystack[i] == needle[j])
+		temp_node = ft_lstnew((*f)(lst->content));
+		if (!temp_node)
 		{
-			while (haystack[i + j] == needle[j] && i + j < n)
-			{
-				if (needle[j + 1] == '\0')
-					return ((char *)haystack + i);
-				j++;
-			}
-			j = 0;
+			ft_lstclear(&new_list, del);
+			return (NULL);
 		}
-		i++;
+		ft_lstadd_back(&new_list, temp_node);
+		temp_node = temp_node->next;
+		lst = lst->next;
 	}
-	return (NULL);
+	return (new_list);
 }

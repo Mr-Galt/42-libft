@@ -1,41 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/04 09:28:27 by mheinke           #+#    #+#             */
-/*   Updated: 2023/07/11 19:51:52 by mheinke          ###   ########.fr       */
+/*   Created: 2023/07/11 16:06:50 by mheinke           #+#    #+#             */
+/*   Updated: 2023/07/11 19:19:47 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t n)
+t_list	*ft_lstnew(void *content)
 {
-	size_t	i;
-	size_t	j;
+	t_list	*new_node;
 
-	i = 0;
-	j = 0;
-	if (!haystack && !n)
+	new_node = (t_list *)malloc(sizeof(*new_node));
+	if (!new_node)
 		return (NULL);
-	if (!*needle)
-		return ((char *)haystack);
-	while (haystack[i] != '\0' && i < n)
-	{
-		if (haystack[i] == needle[j])
-		{
-			while (haystack[i + j] == needle[j] && i + j < n)
-			{
-				if (needle[j + 1] == '\0')
-					return ((char *)haystack + i);
-				j++;
-			}
-			j = 0;
-		}
-		i++;
-	}
-	return (NULL);
+	new_node->content = content;
+	new_node->next = NULL;
+	return (new_node);
 }
