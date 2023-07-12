@@ -6,13 +6,13 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 20:15:07 by mheinke           #+#    #+#             */
-/*   Updated: 2023/07/11 20:18:07 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/07/12 07:41:20 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_lstclear(t_list **lst, void (*del)(void *))
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
 	t_list	*current_node;
 	t_list	*next_node;

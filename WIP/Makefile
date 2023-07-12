@@ -6,7 +6,7 @@
 #    By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/04 09:45:03 by mheinke           #+#    #+#              #
-#    Updated: 2023/07/11 18:30:29 by mheinke          ###   ########.fr        #
+#    Updated: 2023/07/12 07:58:04 by mheinke          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -75,8 +75,9 @@ FILES = ft_atoi ft_bzero ft_isalnum ft_isalpha ft_tolower \
 		ft_putstr_fd ft_putendl_fd ft_putnbr_fd ft_strmapi \
 		ft_strtrim ft_substr ft_split ft_itoa ft_striteri
 
-FILES_B = 	ft_lstnew \
-	  		ft_lstadd_front \
+FILES_B = 	ft_lstadd_back ft_lstadd_front ft_lstclear \
+ 			ft_lstdelone ft_lstiter ft_lstlast \
+ 			ft_lstmap ft_lstnew ft_lstsize
 
 
 SRCS_DIR = ./

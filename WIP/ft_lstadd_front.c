@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 17:56:15 by mheinke           #+#    #+#             */
-/*   Updated: 2023/07/11 19:19:46 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/07/12 07:48:12 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,5 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 		*lst = new;
 	}
 	else
-		return;
+		return ;
 }

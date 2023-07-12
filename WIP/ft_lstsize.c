@@ -6,13 +6,13 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 19:15:46 by mheinke           #+#    #+#             */
-/*   Updated: 2023/07/11 19:23:35 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/07/12 07:48:03 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_lstsize(t_list *lst)
+int	ft_lstsize(t_list *lst)
 {
 	int	i;
 

@@ -6,11 +6,12 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 09:29:15 by mheinke           #+#    #+#             */
-/*   Updated: 2023/07/11 11:28:08 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/07/12 08:20:51 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 int	ft_atoi(const char *str)
 {
@@ -35,4 +36,10 @@ int	ft_atoi(const char *str)
 		i++;
 	}
 	return (res * neg_flag);
+}
+
+int main()
+{
+	printf("%d", atoi("-999999999999999999999999999999999999"));
+	printf("%d", ft_atoi("-999999999999999999999999999999999999"));
 }
