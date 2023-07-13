@@ -6,7 +6,7 @@
 #    By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/04 09:45:03 by mheinke           #+#    #+#              #
-#    Updated: 2023/07/12 07:58:04 by mheinke          ###   ########.fr        #
+#    Updated: 2023/07/13 13:42:07 by mheinke          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,7 +62,7 @@
 
 NAME = libft.a
 
-CC = clang
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
 AR = ar rcs
 RM = rm -f
