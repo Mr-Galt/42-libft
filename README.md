@@ -11,7 +11,7 @@ This project is aimed at deepening our understanding of the C programming langua
 ## Installation & Usage
 
 ```bash
-git clone https://github.com/yourusername/libft.git
+git clone https://github.com/Mr-Galt/libft.git
 cd libft
 make
 ```
